@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize the Database Helper
         mUserData = EventDataSqlHelper(this )
 
-        binding.retrieveDataBtn.isEnabled = false
+        // binding.retrieveDataBtn.isEnabled = false
 
         binding.saveBtn.setOnClickListener {
             enterData(
@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             val cursor = getEvents()
             if (cursor != null) {
                 binding.addressTextView.text = showData(cursor)
+            } else {
+                binding.addressTextView.text = "No Data found"
             }
         }
 
